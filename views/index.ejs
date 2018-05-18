@@ -22,12 +22,16 @@
       <input class="form-control"  type="text" name="email" value="">
       </div>
       <div class="form-group">
-      <input class="btn btn-lg btn-success" type="submit" name="" value="Submit">
+      <input class="btn btn-med btn-success" type="submit" name="" value="Submit">
     </form>
     <p>
-      <% users.forEach(function(user){ %>
-      <h3> <%= user.firstName%> <%= user.lastName%>  </h3>
-      <a href="" class="btn btn-primary deleteUser" data-id='<%= user._id %>'>Delete</a>
+  <ul>
+    <% users.forEach(function(user){ %>
+
+      <li> <%= user.firstName%> <%= user.lastName%> <a href="mailto:<%= user.email %>"> <%= user.email %></a>
+        </li>
+      <a href="/users/delete/<%= user._id %>" class="btn btn-danger btn-sm deleteUser" data-id='<%= user._id %>'>Delete</a>
       <% }) %>
+    </ul>
     </p>
 <% include ./partials/footer %>
